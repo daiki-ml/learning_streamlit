@@ -1,14 +1,20 @@
 import streamlit as st
 import time
+import pandas as pd
+import matplotlib.pyplot as plt
+import yfinance as yf
 
-st.title("Streamlit超入門")
-st.write("DataFrame")
+from get_finance import get_finance_df
 
-bar = st.progress(0)
-latest_iteration = st.empty()
-for i in range(1, 101):
-    latest_iteration.text(f"Iteration {i}")
-    bar.progress(i)
-    time.sleep(0.1)
+st.title("米国TOP企業の株価")
 
-"done!"
+tickers = {
+    "apple": "AAPL",
+    "meta": "META",
+    "google": "GOOGL",
+    "microsoft": "MSFT",
+    "netflix": "NFLX",
+    "amazon": "AMZN"
+}
+hist = get_finance_df(20, tickers)
+st.write(hist)
