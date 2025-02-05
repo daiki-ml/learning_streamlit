@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import yfinance as yf
 
 from get_finance import get_finance_df
